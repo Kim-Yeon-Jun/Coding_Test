@@ -1,0 +1,21 @@
+n, m, k = map(int, input().split())
+data = list(map(int, input().split()))
+data.sort(reverse=True)
+
+first = data[0]
+second = data[1]
+count = 1
+all=0
+sum=0
+while True:
+    stp=count%4 #stp는 count가 3의 배수 일 때 0이 된다 => count가 3이면 두번째로 큰수를 더해주고 count를 다시 0으로 초기화
+    if stp!=0:
+        sum+=first
+        count+=1
+    else:
+        sum+=second
+        count=1
+    all+=1
+    if all==8:
+        break
+print(sum)
