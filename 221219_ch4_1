@@ -1,0 +1,31 @@
+n=input()       //입력받은 n은 str
+x=1;y=1         //x, y는 int 
+path=input().split()
+print(path)
+count=0
+inn=int(n)
+
+while count<len(path):
+    if path[count]=='L':
+        x-=1
+        count+=1
+    elif path[count]=='R':
+        x+=1
+        count+=1
+    elif path[count]=='U':
+        y+=1
+        count+=1
+    elif path[count]=='D':
+        y-=1
+        count+=1
+    
+    if x==0:
+        x=1
+    if y==0:
+        y=1
+    if x>=inn:
+        x=inn
+    if y>=inn:
+        y=inn
+
+print(x,y)
