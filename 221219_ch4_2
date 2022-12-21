@@ -1,6 +1,6 @@
 n=input()
 
-inn=int(n)
+inn=int(n)      // n=int(input())로 축약 가능+ 변수의 개수 -1
 count=0
 for i in range(inn+1):
     for j in range(60):
