@@ -1,0 +1,22 @@
+input_point=input()
+x=input_point[0]
+y=int(input_point[1])
+row=['a','b','c','d','e','f','g','h']
+index=0
+while(True):
+    data=row[index]
+    if x==data:
+        break
+    else:
+        index+=1
+x=index
+move_count=[[1,2],[1,-2],[-1,2],[-1,-2],[2,1],[2,-1],[-2,1],[-2,-1]]
+count=0
+for i in range(8) :
+    ch_point=[x,y]
+    ch_point[0]=ch_point[0]+move_count[i][0]
+    ch_point[1]=ch_point[1]+move_count[i][1]
+    if ch_point[0]>=0 and ch_point[1]>=1:
+        count+=1
+
+print(count)
