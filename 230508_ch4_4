@@ -1,0 +1,67 @@
+# 사용자에게 입력받은 지도의 크기
+N, M = map(int, input().split())
+
+# 방문 기록을 남길 배열( 0 : 방문X, 1 : 방문O)
+p_loc =[[0]*M for _ in range(N)]
+
+#시작위치(x,y), 바라보는 방향(vector)를 입력받음
+x, y, vector = map(int,input().split())
+
+#시작위치는 방문한것으로 처리
+p_loc[x][y]=1
+
+#사용자에게 입력받을 지도 구성( 0 : 육지, 1 : 바다)
+maps=[]
+
+for i in range(N):
+    maps.append(list(map(int,input().split())))
+
+#북동남서(0, 1, 2, 3)순으로 움직임을 나타낼 벡터의 성분을 두개의 배열로 표현
+d_x = [-1, 0, 1, 0]
+d_y = [0, 1, 0, -1]
+
+#왼쪽으로 회전하는 기능을 하는 함수
+def rotate():
+    global vector
+    vector -= 1
+    if vector == -1:
+       vector = 3
+
+#최대 4번 회전하면 == 더이상 갈곳이 없음을 확인하기 위한 turn_time 변수
+turn_time = 0       
+
+#방문한 칸의 갯수를 카운트. 최초의 칸도 포함되기 때문에 1로 초기화
+count = 1
+
+#실제 동작하는 코드/반복문
+while True:
+    rotate()
+    #회전후 바라보는 칸에 대해 판단하기 위해 now_x,y에 값은 선대입한 뒤 방문이 가능한지 확인
+    now_x = x+d_x[vector]
+    now_y = y+d_y[vector]
+    #방문가능
+    if maps[now_x][now_y] == 0 and p_loc[now_x][now_y] == 0:
+        p_loc[now_x][now_y] = 1
+        x = now_x
+        y = now_y
+        count += 1
+        turn_time = 0
+        continue
+    #방문 불가능 : 다시 왼쪽으로 회전
+    else:
+        turn_time += 1
+    #4개의 방향에 대해 모두 갈 수 있는 칸이 없는 경우 바라보는 방향의 뒤로 움직임
+    if turn_time == 4:
+        now_x = x - d_x[vector]
+        now_y = y - d_y[vector]
+        #뒤로 갈 수 있는 경우
+        if maps[now_x][now_y] == 0:
+            x = now_x
+            y = now_y
+        #뒤로 갈 수 없는 바디인 경우
+        else:
+            break
+        #뒤로 갔다면
+        turn_time = 0
+#최종적으로 방문한 칸의 갯수를 출력        
+print(count)
