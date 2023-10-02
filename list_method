@@ -1,0 +1,28 @@
+dfs(스택) / bfs(큐) 를 이용한 탐색문제
+문제 풀이 방식>>
+dfs : 모든 방문의 경우의 수
+bfs : 최단거리
+
+a, b =map(int, input().split())
+: int 형식으로 입력받음/ 입력받은 값을 split을 통해 쪼갬 / map에 별도로 지정된 형식이 없음 -> 값으로 반환
+
+for i in range(n):
+	graph.append(list(map(int, input()))
+	int 형식으로 입력을 받고 이를 리스트 형식으로 반환. graph라는 빈 리스트에 append로 추가시킴
+
+insert() : 특정 위치에 요소 삽입 > list.insert(1,10)
+append() : 리스트 끝에 요소 삽입 > list.append(5)
+clear() : 리스트 내용 모두 삭제 > list.clear()
+del() : 리스트 특정 위치 요소 삭제 > del(list[2])
+remove() : 리스트의 특정 요소 삭제 > list.remove(2)
+pop() : 리스트의 마지막 요소 출력 후 삭제 > list.pop()
+popleft() : 리스트 첫번째 요소 출력 후 삭제 > list.popleft() // deque사용시
+len() : 리스트 요소의 개수 > len(list)
+count() : 리스트 내 특정  요소의 개수 > list.count(2)
+copy() : 리스트 복사 > list.copy()
+extend() : 리스트 병합 > list.extend(list2)
+split() : 리스트 분리 > list.split('')
+index() : 리스트의 특정 요소 검색 > list.index(2)
+sort() : 정렬(기본 : 오름차순, reverser = True : 내림차순) > list.sort() / list.sort(reverser=True)
+sorted() : 정렬된 리스트를 새로운 리스트에 복사 > list2 = sorted(list)
+reverse() : 리스트 역순 출력 > list.reverse()
