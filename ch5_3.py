@@ -1,5 +1,5 @@
 n, m = map(int, input().split())
-
+#입력 받을 그래프
 graph = []
 for i in range(n):
     graph.append(list(map(int, input())))
