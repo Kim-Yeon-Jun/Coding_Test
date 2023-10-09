@@ -7,7 +7,7 @@ a, b =map(int, input().split())
 : int 형식으로 입력받음/ 입력받은 값을 split을 통해 쪼갬 / map에 별도로 지정된 형식이 없음 -> 값으로 반환
 
 for i in range(n):
-	graph.append(list(map(int, input()))
+	graph.append(list(map(int, input())))
 	int 형식으로 입력을 받고 이를 리스트 형식으로 반환. graph라는 빈 리스트에 append로 추가시킴
 
 insert() : 특정 위치에 요소 삽입 > list.insert(1,10)
@@ -26,3 +26,27 @@ index() : 리스트의 특정 요소 검색 > list.index(2)
 sort() : 정렬(기본 : 오름차순, reverser = True : 내림차순) > list.sort() / list.sort(reverser=True)
 sorted() : 정렬된 리스트를 새로운 리스트에 복사 > list2 = sorted(list)
 reverse() : 리스트 역순 출력 > list.reverse()
+
+
+<파이썬 리스트를 문자열로 변환>
+str_list = ['There', 'is', 4, "items"]
+result = ' '.join(map(str, str_list))
+print(result)
+
+
+<sorted & key(lambda)>
+num_list = [15, 22, 8, 79, 10]
+num_list.sort(reverse=True) //내림차순
+print(num_list)
+[79, 22, 15, 10, 8]
+
+print(sorted(['좋은하루','good_morning','굿모닝','niceday'], reverse=True))
+['좋은하루', '굿모닝', 'niceday', 'good_morning']
+#=======================================================
+str_list = ['좋은하루','good_morning','굿모닝','niceday']
+print(sorted(str_list, key=len))  # 함수
+['굿모닝', '좋은하루', 'niceday', 'good_morning']
+
+print(sorted(str_list, key=lambda x : x[1]))  # 람다
+#x를 기준으로 정렬할 것인데 x[1]의 요소들의  정렬에 맞춰 다른 연관 요소들도 정렬.
+['niceday', 'good_morning', '굿모닝', '좋은하루']
