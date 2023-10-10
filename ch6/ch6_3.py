@@ -15,12 +15,13 @@ for k in range(n):
     s_name[k], s_name[mini] = s_name[mini], s_name[k]
 result = ' '.join(map(str, s_name))
 print(result)
-
-#계수정렬을 이용한 문제풀이
+#===================================================
+#계수정렬을 이용한 문제풀이(해설)
 n = int(input())
 array = []
 for i in range(n):
     input_data = input().split()
+    #2차원 데이터로 저장
     array.append((input_data[0], int(input_data[1])))
     
 array = sorted(array, key=lambda student: student[1])
